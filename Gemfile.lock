@@ -87,9 +87,12 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    metaclass (0.0.1)
     mime-types (1.23)
     mini_portile (0.5.0)
     minitest (4.7.5)
+    mocha (0.14.0)
+      metaclass (~> 0.0.1)
     multi_json (1.7.7)
     mysql2 (0.3.11)
     nokogiri (1.6.0)
@@ -194,6 +197,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   libv8
+  mocha
   mysql2
   protected_attributes
   quiet_assets

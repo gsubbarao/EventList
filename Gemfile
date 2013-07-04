@@ -59,6 +59,7 @@ end
 
 group :development, :test do
   gem 'factory_girl_rails'
+  gem "mocha"
   gem 'rspec-rails'
   gem 'thin'
 end
