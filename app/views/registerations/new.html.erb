@@ -1,0 +1,8 @@
+<%=form_for @user, :url => registerations_path do |f|%>
+  <%=f.text_field :name, :placeholder => "Email"%>
+  <%=f.email_field :email, :placeholder => "Email"%>
+  <%=f.password_field :password, :placeholder => "Password"%>
+  <%=f.password_field :password_confirmation, :placeholder => "Conform Password"%>
+  <%=f.select :gender, [["Male", 1],["Female", 0]]%>
+  <%=f.submit "Register"%>
+<%end%>
