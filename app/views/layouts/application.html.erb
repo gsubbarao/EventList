@@ -47,9 +47,12 @@
           <a class="brand" href="#">EventList</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav right_float">
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
+              <%if user_siginin?%>
+                <li><%= link_to "Logout", "/path1"  %></li>
+              <%else%>
+                <li><%= link_to "Login", new_session_path  %></li>
+                <li><%= link_to "Register", "/path3"  %></li>
+              <%end%>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -65,9 +68,6 @@
 
     </div> <!-- /container -->
 
-    <!-- Javascripts
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
     <%= javascript_include_tag "application" %>
 
   </body>
