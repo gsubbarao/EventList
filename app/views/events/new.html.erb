@@ -1,0 +1,15 @@
+<%=form_for @event, :url => events_path do |f|%>
+  <% if @event.errors.any? %>
+    <div class="error_messages">
+      <ul>
+        <% for message in @event.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%=f.text_field :title, :placeholder => "Title"%>
+  <%=f.text_area :description, :placeholder => "Description..."%>
+  <%=f.text_field :scheduled, "data-format" => "MM/dd/yyyy HH:mm:ss PP"%>
+  <%=f.submit "Create"%>
+<%end%>

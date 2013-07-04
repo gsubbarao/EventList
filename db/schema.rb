@@ -11,7 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130704094138) do
+ActiveRecord::Schema.define(version: 20130704124740) do
+
+  create_table "events", force: true do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.text     "description"
+    t.datetime "scheduled"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "events_users", force: true do |t|
+    t.integer "event_id"
+    t.integer "user_id"
+  end
+
+  add_index "events_users", ["event_id", "user_id"], name: "index_events_users_on_event_id_and_user_id", using: :btree
+  add_index "events_users", ["user_id"], name: "index_events_users_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -20,6 +37,11 @@ ActiveRecord::Schema.define(version: 20130704094138) do
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "users_events_tables", force: true do |t|
+    t.integer "event_id"
+    t.integer "user_id"
   end
 
 end
