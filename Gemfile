@@ -43,3 +43,36 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem 'bootstrap-sass'
+gem 'figaro'
+gem 'libv8'
+gem 'mysql2'
+gem 'protected_attributes'
+
+group :assets do
+  gem 'therubyracer', :platform=>:ruby, :require=>"v8"
+end
+
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller', :platforms=>[:mri_19, :rbx]
+  gem 'quiet_assets'
+end
+
+group :development, :test do
+  gem 'factory_girl_rails'
+  gem 'rspec-rails'
+  gem 'thin'
+end
+
+group :production do
+  gem 'unicorn'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'email_spec'
+end
+
