@@ -4,9 +4,10 @@ EventList::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'home#index'
-  resources :sessions, :only => [:new, :create, :destroy]
+  resources :sessions, :only => [:new, :create]
   resources :registerations, :only => [:new, :create, :destroy]
   get "home/index"
+  get "/logout" => "sessions#destroy", :as => :logout
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
