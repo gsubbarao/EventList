@@ -1,0 +1,6 @@
+<%if user_siginin?%>
+	<%=link_to "New Event", new_event_path%><br/>
+<%end%>
+<%@events.each do |event|%>
+	<%=link_to event.title, event_path(event)%><br/>
+<%end%>

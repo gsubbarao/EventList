@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
 
 private
 
+def required_user
+	redirect_to root_path, :alert => "Please login to access this page" unless user_siginin?
+end
+
 def current_user
   @current_user ||= User.find(session[:user_id]) if session[:user_id]
 end

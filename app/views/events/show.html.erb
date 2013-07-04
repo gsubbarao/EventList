@@ -1,0 +1,9 @@
+<%=@event.inspect%><br/>
+<%@event.users.each do |user|%>
+<%=user.name%>
+<%=user.gender%>
+<br/>
+<%end%>
+<%if can_attend?(@event.scheduled)%>
+<br/><%=link_to 'attend', atten_or_not_event_path(@event)%>
+<%end%>
