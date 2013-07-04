@@ -45,14 +45,11 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem 'bootstrap-sass'
+gem "twitter-bootstrap-rails"
 gem 'figaro'
 gem 'libv8'
 gem 'mysql2'
 gem 'protected_attributes'
-
-group :assets do
-  gem 'therubyracer', :platform=>:ruby, :require=>"v8"
-end
 
 group :development do
   gem 'better_errors'
