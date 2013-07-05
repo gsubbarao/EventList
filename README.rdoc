@@ -3,26 +3,20 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-Things you may want to cover:
+	Things you may want to cover:
 
-* Ruby version
+	* Ruby version 
+	 1.9.3
 
-* System dependencies
+	* Configuration 
+	 Create your own database.yml file or rename database.example.yml
 
-* Configuration
+	* Database creation
+	 bundle install
+	 bundle exec rake db:create
+	 bundle exec rake db:migrate
 
-* Database creation
+	* How to run the test suite
+	 RAILS_ENV=test  bundle exec rake db:migrate
+	 bundle exec rspec spec
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
