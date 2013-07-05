@@ -6,7 +6,7 @@
 <blockquote class="text-info">
   <p>List of users for this event
     <%if can_attend?(@event.scheduled)%>
-    <%=link_to attentd_status(@event), atten_or_not_event_path(@event), :class => "btn btn-primary"%>
+    <%=link_to attentd_status(@event), attend_or_not_event_path(@event), :class => "btn btn-primary"%>
     <%end%>
   </p>
 </blockquote>
