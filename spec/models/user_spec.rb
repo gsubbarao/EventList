@@ -48,6 +48,21 @@ describe User do
         @user2.events.should == [@event1, @event2, @event3]
       end
     end
+
+    context "Authentication check" do
+      before(:each) do
+        @user = FactoryGirl.create(:user, :email => 'test@test.com', :password => "mypassword",
+                                   :password_confirmation => "mypassword")
+      end
+      it "should authenticate user with right password" do
+      res = @user.authenticate("mypassword")
+      res.should == @user
+      end
+      it "should not authenticate user with wrong password" do
+      res = @user.authenticate("wrongpassword")
+      res.should == false
+      end
+    end
   end
 end
 
