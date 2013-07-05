@@ -5,4 +5,8 @@ $ ->
   $("#event_scheduled").datetimepicker
     language: "en"
     pick12HourFormat: true
-    
+  $(document).mouseup (e) ->
+    container = $(".bootstrap-datetimepicker-widget")
+    container.hide()  if container.has(e.target).length is 0
+  $('#event_scheduled').click (e) ->
+    $(".bootstrap-datetimepicker-widget").css({'top':e.pageY,'left':e.pageX}).show()

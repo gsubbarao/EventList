@@ -1,5 +1,8 @@
-<%=form_for @user, :url => sessions_path do |f|%>
-  <%=f.email_field :email, :placeholder => "Email"%>
-  <%=f.password_field :password, :placeholder => "Password"%>
-  <%=f.submit "Login"%>
-<%end%>
+<div class="container login_panel">
+  <%=form_for @user, :url => sessions_path do |f|%>
+  <h3 class="text-info">Login with your account</h3>
+  <div><%=f.email_field :email, :placeholder => "Email"%></div>
+  <div><%=f.password_field :password, :placeholder => "Password"%></div>
+  <div><%=f.submit "Login", :class => "btn btn-primary"%></div>
+  <%end%>
+</div>

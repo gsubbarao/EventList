@@ -1,6 +1,13 @@
-<%if user_siginin?%>
-	<%=link_to "New Event", new_event_path%><br/>
-<%end%>
-<%@events.each do |event|%>
-	<%=link_to event.title, event_path(event)%><br/>
-<%end%>
+<blockquote class="text-info">
+  <p>List of events
+    <%if user_siginin?%>
+    <%=link_to "New Event", new_event_path, :class => "btn btn-primary"%><br/>
+    <%end%>
+  </p>
+</blockquote>
+<table class="table table-hover">
+  <thead><td>Title</td><td>Description</td><td>Scheduled</td></thead>
+  <%@events.each do |event|%>
+  <tr href="<%=event_url(event)%>"><td width="20%"><%=link_to event.title, event_path(event)%></td><td><%=event.description%></td><td width="20%"><%=event.scheduled%></td></tr>
+  <%end%>
+</table>

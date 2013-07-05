@@ -1,17 +1,20 @@
-<%=form_for @user, :url => registerations_path do |f|%>
+<div class="container login_panel">
+  <h3 class="text-info">Register a new account</h3>
+  <%=form_for @user, :url => registerations_path do |f|%>
   <% if @user.errors.any? %>
-    <div class="error_messages">
-      <ul>
-        <% for message in @user.errors.full_messages %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
+  <div class="error_messages">
+    <ul>
+      <% for message in @user.errors.full_messages %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
   <% end %>
-  <%=f.text_field :name, :placeholder => "Name"%>
-  <%=f.email_field :email, :placeholder => "Email"%>
-  <%=f.password_field :password, :placeholder => "Password"%>
-  <%=f.password_field :password_confirmation, :placeholder => "Conform Password"%>
-  <%=f.select :gender, [["Male", 1],["Female", 0]]%>
-  <%=f.submit "Register"%>
-<%end%>
+  <div><%=f.text_field :name, :placeholder => "Name"%></div>
+  <div><%=f.email_field :email, :placeholder => "Email"%></div>
+  <div><%=f.password_field :password, :placeholder => "Password"%></div>
+  <div><%=f.password_field :password_confirmation, :placeholder => "Conform Password"%></div>
+  <div><%=f.select :gender, [["Male", 1],["Female", 0]]%></div>
+  <div><%=f.submit "Register", :class => "btn btn-primary"%></div>
+  <%end%>
+</div>

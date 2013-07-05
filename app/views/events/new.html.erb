@@ -1,15 +1,18 @@
-<%=form_for @event, :url => events_path do |f|%>
+<div class="container login_panel">
+  <h3 class="text-info">Create Your Event</h3>
+  <%=form_for @event, :url => events_path do |f|%>
   <% if @event.errors.any? %>
-    <div class="error_messages">
-      <ul>
-        <% for message in @event.errors.full_messages %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
+  <div class="error_messages">
+    <ul>
+      <% for message in @event.errors.full_messages %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
   <% end %>
-  <%=f.text_field :title, :placeholder => "Title"%>
-  <%=f.text_area :description, :placeholder => "Description..."%>
-  <%=f.text_field :scheduled, "data-format" => "dd/MM/yyyy HH:mm:ss PP"%>
-  <%=f.submit "Create"%>
-<%end%>
+  <div><%=f.text_field :title, :placeholder => "Title"%></div>
+  <div><%=f.text_area :description, :placeholder => "Description..."%></div>
+  <div><%=f.text_field :scheduled, "data-format" => "dd/MM/yyyy HH:mm:ss PP"%></div>
+  <div><%=f.submit "Create", :class => "btn btn-primary"%></div>
+  <%end%>
+</div>

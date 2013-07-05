@@ -1,9 +1,18 @@
-<%=@event.inspect%><br/>
-<%@event.users.each do |user|%>
-<%=user.name%>
-<%=user.gender%>
-<br/>
-<%end%>
-<%if can_attend?(@event.scheduled)%>
-<br/><%=link_to 'attend', atten_or_not_event_path(@event)%>
-<%end%>
+<blockquote>
+  <p class="text-info"><%=@event.title%></p>
+  <small class="text-error"><%=@event.scheduled%></small>
+</blockquote>
+<p><%=@event.description%></p>
+<blockquote class="text-info">
+  <p>List of users for this event
+    <%if can_attend?(@event.scheduled)%>
+    <%=link_to attentd_status(@event), atten_or_not_event_path(@event), :class => "btn btn-primary"%>
+    <%end%>
+  </p>
+</blockquote>
+<table class="table table-hover user_list" >
+  <thead><td>Name</td><td>Sex</td></thead>
+  <%@event.users.each do |user|%>
+  <tr><td><%=user.name%></td><td><%=user.sex%></tr>
+  <%end%>
+</table>

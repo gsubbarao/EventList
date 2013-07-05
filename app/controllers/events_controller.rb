@@ -7,6 +7,7 @@ class EventsController < ApplicationController
 
   def create
     params[:event][:scheduled] = DateTime.parse(params[:event]["scheduled"])
+    params[:event][:owner_id] = current_user.id
     @event = Event.new(params[:event])
       if @event.save
         redirect_to root_url, :notice => "Your event created successfully."
@@ -26,7 +27,12 @@ class EventsController < ApplicationController
   end
 
   def atten_or_not
+    event = current_user.events.find(params[:id]) rescue nil
+    unless event.nil?
+      current_user.events.delete(event)
+    else
     current_user.events << Event.find(params[:id])
+  end
     redirect_to :back
   end
 
