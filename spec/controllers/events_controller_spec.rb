@@ -25,6 +25,14 @@ describe EventsController do
         response.should redirect_to root_path
       end
     end
+        describe "GET 'show'" do
+      event = FactoryGirl.create(:event)
+      it "should show the event details and attending users" do
+        get 'show', :id => event.id
+        response.should render_template("show")
+        assigns.should have_key(:event)
+      end
+    end
   end
   context "With login" do
     before do
@@ -51,6 +59,35 @@ describe EventsController do
       it "should fails to create event and render event form" do
         get 'create', :event => { :description => "correct", :scheduled => "2013-07-04 18:11:35"}
         response.should render_template("new")
+      end
+    end
+    describe "GET 'show'" do
+      event = FactoryGirl.create(:event)
+      it "should show the event details and attending users" do
+        get 'show', :id => event.id
+        response.should render_template("show")
+        assigns.should have_key(:event)
+      end
+    end
+    describe "get 'attend_or_not'" do
+      before(:each) do
+        request.env["HTTP_REFERER"] = "show"
+        @user = FactoryGirl.create(:user) 
+        session[:user_id] = @user.id
+        @event = FactoryGirl.create(:event)
+      end
+      it "should attend this event" do
+        get 'attend_or_not', :id => @event.id
+        @user.reload
+        @user.events.should == [@event]
+        response.should redirect_to "show"
+      end
+      it "should unattend this event" do
+        @user.events << @event
+        get 'attend_or_not', :id => @event.id
+        @user.reload
+        @user.events.should_not == [@event]
+        response.should redirect_to "show"
       end
     end
   end

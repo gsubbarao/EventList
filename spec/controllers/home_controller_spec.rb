@@ -9,6 +9,7 @@ describe HomeController do
     end
 
     it "should render index and include list of events" do
+      Event.destroy_all
       event = FactoryGirl.create(:event, title: "Testing title")
       get 'index'
       response.should render_template("index")
