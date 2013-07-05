@@ -26,7 +26,7 @@ class EventsController < ApplicationController
     @event = Event.includes(:users).find(params[:id])
   end
 
-  def atten_or_not
+  def attend_or_not
     event = current_user.events.find(params[:id]) rescue nil
     unless event.nil?
       current_user.events.delete(event)
