@@ -5,15 +5,15 @@ application up and running.
 
 	Things you may want to cover:
 
-	* Ruby version <rb/>
+	* Ruby version 
 	
-	* 1.9.3<rb/>
+	* 1.9.3
 
 	* Configuration 
 	
 	* Create your own database.yml file or rename database.example.yml
 
-	* Database creation <rb/>
+	* Database creation
 	
 	* bundle install
 	* bundle exec rake db:create
