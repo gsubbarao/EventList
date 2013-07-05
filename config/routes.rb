@@ -8,7 +8,7 @@ EventList::Application.routes.draw do
   resources :registerations, :only => [:new, :create, :destroy]
   resources :events, :only => [:new, :create, :destroy, :show] do
     member do
-      get :atten_or_not
+      get :attend_or_not
     end
   end
   get "home/index"
