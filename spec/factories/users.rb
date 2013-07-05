@@ -4,7 +4,8 @@ FactoryGirl.define do
   factory :user do
     name "MyString"
     email "MyString"
-    gender ""
-    password_digest "MyString"
+    gender User::GENDER[:MALE]
+    password "MyString"
+    password_confirmation "MyString"
   end
 end

@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :event do
-    user_id 1
-    name "MyString"
+    owner_id 1
+    title "MyString"
     description "MyText"
     scheduled "2013-07-04 18:11:35"
   end
